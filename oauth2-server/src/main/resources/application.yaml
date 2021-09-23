@@ -1,0 +1,20 @@
+spring:
+  application:
+    # 应用名称
+    name: oauth2-server
+  # 数据库配置
+  datasource:
+    url: jdbc:mysql://192.168.50.16:3306/oauth2?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: user
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 9000
+eureka:
+  instance:
+    prefer-ip-address: true
+    status-page-url-path: /doc.html
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}:${spring.application.name}
+  client:
+    service-url:
+      defaultZone: http://root:root@localhost:8087/eureka/
