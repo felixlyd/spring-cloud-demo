@@ -1,0 +1,18 @@
+# 应用名称
+spring:
+  application:
+    name: eureka-server
+  security:
+    user:
+      name: root
+      password: root
+# 端口
+server:
+  port: 8087
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka/
+
