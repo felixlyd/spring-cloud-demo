@@ -1,5 +1,7 @@
 package org.example.felixlyd.eurekaclient.controller;
 
+import org.example.felixlyd.eurekaclient.bean.HelloBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,14 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class HelloController {
-
-    /** 服务提供者名称*/
-    @Value("${provider.name}")
-    private String name;
-
-    /** 服务提供者端号*/
-    @Value("${server.port}")
-    private String port;
+    @Autowired
+    private HelloBean helloBean;
 
     /**
      *
@@ -26,7 +22,7 @@ public class HelloController {
      */
     @RequestMapping("/hello")
     public String hello(){
-        return "provider:" + name + " port:" + port;
+        return "provider:" + helloBean.getName() + " port:" + helloBean.getPort();
     }
 
 }
