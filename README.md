@@ -1,5 +1,3 @@
 # spring-cloud-demo
 
-本项目是一个spring cloud的demo，实现最基础简单的功能
-
-来源：Spring Cloud开发————从入门到实战（王勇 编著）
+本项目根据《spring cloud微服务架构实战派》（龙中华著）一书从零开始构建项目， 达到熟悉spring cloud的目的
