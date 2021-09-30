@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: demo-04
+  profiles:
+    active: prod
+
+
