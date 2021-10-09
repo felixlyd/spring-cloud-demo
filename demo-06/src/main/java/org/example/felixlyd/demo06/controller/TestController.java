@@ -26,7 +26,9 @@ public class TestController {
 
     @GetMapping("/test")
     public void test(){
+        /*因为没有注册中心，这里的服务提供者是从application.properties列表中拉取的*/
         ServiceInstance serviceInstance = loadBalancerClient.choose("provider");
+        /*这里并没有调用服务提供者的接口，而是实现了一个接口，打印服务提供者的地址和端口*/
         System.out.println(serviceInstance.getHost() + serviceInstance.getPort()+" "+ sdf.format(date));
     }
 }

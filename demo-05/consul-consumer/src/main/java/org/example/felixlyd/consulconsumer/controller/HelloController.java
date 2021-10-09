@@ -23,8 +23,10 @@ public class HelloController {
     /** 调用服务的接口*/
     @GetMapping("/hello")
     public String hello(){
+        /*这里choose的服务提供者是从注册中心中拉取的*/
         ServiceInstance serviceInstance = loadBalancerClient.choose("service-provider");
         URI uri = serviceInstance.getUri();
+        /* 这里调用的是RestTemplate客户端*/
         String callService = new RestTemplate().getForObject(uri+"/hello", String.class);
         System.out.println(callService);
         return callService;

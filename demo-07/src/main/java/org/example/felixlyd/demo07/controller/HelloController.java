@@ -17,6 +17,8 @@ public class HelloController {
     private RestTemplate restTemplate;
     @GetMapping("/hello")
     public String hello(){
+        /*没有注册中心，是从application.properties中拉取过来的provider*/
+        /*并且调用了服务提供者中的方法*/
         return restTemplate.getForObject("http://provider/" + "hello", String.class);
     }
 }
