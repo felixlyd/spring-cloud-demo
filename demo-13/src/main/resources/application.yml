@@ -1,0 +1,65 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        # path路由谓词工厂
+        - id: path_route
+          uri: http://www.phei.com.cn/
+          predicates:
+            - Path=/test1/**
+        # after路由谓词工厂
+        - id: after_route
+          uri: http://www.phei.com.cn/
+          predicates:
+            - After=2022-04-17T06:06:06+08:00[Asia/Shanghai]
+        # before路由谓词工厂
+        - id: before_route
+          uri: http://www.phei.com.cn/
+          predicates:
+            - Before=2021-04-17T06:06:06+08:00[Asia/Shanghai]
+        # between路由谓词工厂
+        - id: between_rooute
+          uri: http://www.phei.com.cn/
+          predicates:
+            - Between=2020-04-17T06:06:06+08:00[Asia/Shanghai],2021-04-17T06:06:06+08:00[Asia/Shanghai]
+        # Cookie路由谓词工厂
+        - id: cookie_route
+          uri: http://www.phei.com.cn/
+          predicates:
+            - Cookie=name, longzhonghua
+        # Header路由谓词工厂
+        - id: header_route
+          uri: http://www.phei.com.cn/
+          predicates:
+            - Header=X-Request-Id, \d+
+        # Host路由谓词工厂
+        - id: host_route
+          uri: http://www.phei.com.cn/
+          predicates:
+            - Host=**.phei.com.cn
+        # Method路由谓词工厂
+        - id: method_route
+          uri: http://www.phei.com.cn/
+          predicates:
+            - Method=GET
+        # Query路由谓词工厂
+        - id: query_route
+          uri: http://www.phei.com.cn/
+          predicates:
+            - Query=name
+        # RemoteAddr路由谓词工厂
+        - id: remoteAddr_route
+          uri: http://www.phei.com.cn/
+          predicates:
+            - RemoteAddr=192.168.1.1/255
+        # Weight路由谓词工厂
+        - id: weight_route1
+          uri: http://weight1.phei.com.cn/
+          predicates:
+            - Weight=Weight,4
+            - Path=/test2/**
+        - id: weight_route2
+          uri: http://weight2.phei.com.cn/
+          predicates:
+            - Weight=Weight,6
+            - Path=/test2/**
