@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: demo18-gateway-hystrix
+  cloud:
+    consul:
+      port: 8500
+      host: localhost
+    gateway:
+      routes:
+        - id: hystrix-route
+          uri: lb://service-provider
+          predicates:
+            - Path=/hello
+          filters:
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback
+logging:
+  level:
+    root: info
+
+
