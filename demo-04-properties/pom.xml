@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.example.felixlyd</groupId>
-    <artifactId>demo-04</artifactId>
+    <artifactId>demo-04-properties</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo-04</name>
-    <description>demo-04</description>
+    <name>demo-04-properties</name>
+    <description>demo-04-properties</description>
 
     <properties>
         <java.version>1.8</java.version>

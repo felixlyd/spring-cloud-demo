@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.example.felixlyd</groupId>
-    <artifactId>demo-11</artifactId>
+    <artifactId>demo-11-hystrix-dashboard</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo-11</name>
-    <description>demo-11</description>
+    <name>demo-11-hystrix-dashboard</name>
+    <description>demo-11-hystrix-dashboard</description>
 
     <properties>
         <java.version>1.8</java.version>
