@@ -1,0 +1,18 @@
+package com.example.demo36security.util;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * class classname
+ *
+ * @author : liuyaodong
+ * @date 2021/11/12
+ */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class AbstractResponseUtil {
+    private Object object;
+}
