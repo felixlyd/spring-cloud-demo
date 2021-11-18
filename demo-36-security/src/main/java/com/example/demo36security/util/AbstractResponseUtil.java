@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * class classname
+ * class AbstractResponseUtil
  *
  * @author : liuyaodong
  * @date 2021/11/12

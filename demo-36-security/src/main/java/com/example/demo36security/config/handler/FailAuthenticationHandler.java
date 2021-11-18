@@ -1,11 +1,10 @@
 package com.example.demo36security.config.handler;
 
-import com.alibaba.fastjson.JSONObject;
+import com.google.gson.Gson;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -25,15 +24,14 @@ public class FailAuthenticationHandler extends SimpleUrlAuthenticationFailureHan
     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
                                         AuthenticationException exception) throws IOException {
         httpServletRequest.setCharacterEncoding("UTF-8");
-        String username = httpServletRequest.getParameter("name");
-        String password = httpServletRequest.getParameter("password");
         String contentType = "application/json;charset=utf-8";
         httpServletResponse.setContentType(contentType);
-        JSONObject responseFail = new JSONObject();
+        Gson gson = new Gson();
+        Map<String,String> responseFail = new HashMap<>(2);
         responseFail.put("status","ERROR");
         responseFail.put("message","用户名或密码错误");
         PrintWriter out = httpServletResponse.getWriter();
-        out.write(responseFail.toJSONString());
+        out.write(gson.toJson(responseFail));
         out.flush();
         out.close();
     }

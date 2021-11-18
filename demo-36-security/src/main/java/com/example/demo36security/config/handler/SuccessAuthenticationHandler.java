@@ -1,13 +1,12 @@
 package com.example.demo36security.config.handler;
 
-import com.alibaba.fastjson.JSONObject;
+import com.google.gson.Gson;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -32,11 +31,12 @@ public class SuccessAuthenticationHandler extends SavedRequestAwareAuthenticatio
             UserDetails  userDetails = (UserDetails) principal;
             String contentType = "application/json;charset=utf-8";
             httpServletResponse.setContentType(contentType);
-            JSONObject responseOk = new JSONObject();
+            Gson gson = new Gson();
+            Map<String,String> responseOk = new HashMap<>(2);
             responseOk.put("status","OK");
             responseOk.put("message","登录成功");
             PrintWriter out = httpServletResponse.getWriter();
-            out.write(responseOk.toJSONString());
+            out.write(gson.toJson(responseOk));
             out.flush();
             out.close();
         }
