@@ -17,7 +17,7 @@ import java.util.Map;
 public class NotFoundController {
     @RequestMapping(value = "/notfound")
     public Mono<Map<String, String>> notFound(){
-        Map<String, String> stringMap = new HashMap<>();
+        Map<String, String> stringMap = new HashMap<>(2);
         stringMap.put("code","404");
         stringMap.put("msg", "Not Found");
         return Mono.just(stringMap);
