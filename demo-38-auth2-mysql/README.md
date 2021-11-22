@@ -1,0 +1,7 @@
+# 工程简介
+spring cloud实战派实例38：用OAuth2实现安全认证和授权
+，mysql实现持久化
+spring cloud实战派实例39：用OAuth2实现安全认证和授权
+，redis实现持久化
+# 延伸阅读
+
